@@ -1,0 +1,59 @@
+<!-- 2 functionalities we want is to create an appointment and then to list all appointments
+  -->
+
+  <!-- Need input field for appointment and then a datepicker -->
+<!-- need to bind these inputs but need to create properties to bind them -->
+<div class="container">
+
+    <div class="card mt-3">
+        <div class="row">
+            <div class="col">
+                    <h2 class="text-center">Create new appointment</h2>
+            </div>
+
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+    <input class="form-control" [(ngModel)]="newAppointmentTitle" placeholder="Appointment description">
+
+            </div>
+            <div class="col-md-6">
+    <input class="form-control" type="date" [(ngModel)]="newAppointmentDate" placeholder="Appointment date">
+
+            </div>
+            <div class="col-md-6">
+    <button class="btn btn-primary w-100" (click)="addAppointment()">Add</button>
+
+            </div>
+
+        </div>
+
+        
+    </div>
+
+    <h2 class="text-center mt-5">Appointments</h2>
+  <ul>
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let appointment of appointments index as i">
+        {{appointment.id}}
+        {{appointment.title}}
+        {{appointment.date | date:'dd.MM.yyyy'}}
+        <button class="btn btn-danger" (click)="deleteAppointment(i)">Delete</button>
+    </li>
+  </ul>
+
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
